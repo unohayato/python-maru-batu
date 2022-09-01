@@ -1,7 +1,6 @@
 
 import random
-from re import S
-#import time
+import time
 field = [
   ["0", "1", "2"],
   ["3", "4", "5"],
@@ -56,7 +55,7 @@ def cpu_select(field):
     y = random.randint(0, 2)
     x = random.randint(0, 2)
     
-    if field[y][x] == "o" or field[y][x] == "o":
+    if field[y][x] == "o" or field[y][x] == "x":
       continue
     else:
       field[y][x] = "x"
@@ -72,28 +71,61 @@ def cpu_select(field):
 #縦、横、斜めのどれかが揃っていたらTrueそれ以外False
 def judge(field):
   ans1 = "あなたの勝ちです。"
-  
+  ans2 = "CPUの勝ちです。"
   #縦
   for x in range(3):  
     if field[0][x] == field[1][x] == field[2][x]:
       if field[0][x] == "o":
+        time.sleep(1)
         print(ans1)
+        draw_field(field)
+        exit()
+      elif field[0][x] == "x":
+        time.sleep(1)
+        print(ans2)
+        draw_field(field)
+        exit()
         
   #横
   for y in range(3):
     if field[y][0] == field[y][1] == field[y][2]:
       if field[y][0] == "o":
+        time.sleep(1)
         print(ans1)
+        draw_field(field)
+        exit()
+      elif field[y][0] == "x":
+        time.sleep(1)
+        print(ans2)
+        draw_field(field)
+        exit()
   
   #右斜め上
   if field[0][2] == field[1][1] == field[2][0]:
     if field[0][2] == "o":
+      time.sleep(1)
       print(ans1)
+      draw_field(field)
+      exit()
+    elif field[0][2] == "x":
+      time.sleep(1)
+      print(ans2)
+      draw_field(field)
+      exit()
       
   #右斜め下
   if field[0][0] == field[1][1] == field[2][2]:
     if field[0][0] == "o":
+      time.sleep(1)
       print(ans1)
+      draw_field(field)
+      exit()
+    elif field[0][0]:
+      time.sleep(1)
+      print(ans2)
+      draw_field(field)
+      exit()
+    
     
       
   
@@ -143,18 +175,20 @@ def judge(field):
 
 turn = 0
 draw_field(field)
+time.sleep(1)
 while True:
   
   
   our_select(field)
+  time.sleep(1)
   judge(field)
   turn += 1
   if turn == 5:
-    break
+    draw_field(field)
+    exit()
   
+  time.sleep(1)
   cpu_select(field)
-  #judge(field)
-  
+  judge(field)
   draw_field(field)
 
-draw_field(field)
