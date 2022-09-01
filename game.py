@@ -1,5 +1,6 @@
 
 import random
+from re import S
 #import time
 field = [
   ["0", "1", "2"],
@@ -79,6 +80,10 @@ def judge(field):
         print(ans1)
         
   #横
+  for y in range(3):
+    if field[y][0] == field[y][1] == field[y][2]:
+      if field[y][0] == "o":
+        print(ans1)
   
   """
 
@@ -133,10 +138,11 @@ while True:
   judge(field)
   turn += 1
   if turn == 5:
-    exit()
+    break
   
   cpu_select(field)
   #judge(field)
   
   draw_field(field)
-  
+
+draw_field(field)
