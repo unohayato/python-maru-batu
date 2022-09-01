@@ -70,6 +70,16 @@ def cpu_select(field):
 
 #縦、横、斜めのどれかが揃っていたらTrueそれ以外False
 def judge(field):
+  ans1 = "あなたの勝ちです。"
+  
+  #縦
+  for x in range(3):  
+    if field[0][x] == field[1][x] == field[2][x]:
+      if field[0][x] == "o":
+        print(ans1)
+        
+  #横
+  
   """
 
   
@@ -120,7 +130,7 @@ while True:
   
   
   our_select(field)
-  #judge(field)
+  judge(field)
   turn += 1
   if turn == 5:
     exit()
