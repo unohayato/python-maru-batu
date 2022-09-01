@@ -85,6 +85,12 @@ def judge(field):
       if field[y][0] == "o":
         print(ans1)
   
+  #右斜め上
+  if field[0][2] == field[1][1] == field[2][0]:
+    if field[0][2] == "o":
+      print(ans1)
+      
+  
   """
 
   
